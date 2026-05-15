@@ -777,74 +777,72 @@
 // calendar, verdict, narrative, readiness. Only visual changes.
 // ============================================================
 const DATA = {
-  generated: "9:12 AM EST, 2026-05-15",
+  generated: "4:10 PM EST, 2026-05-15",
   session_date: "2026-05-15",
   symbol: "CME_MINI:NQ1!",
 
-  // Optional ticker strip — LLM fills from live chart data.
   ticker: {
-    price: "29,177.75",
-    high:  "29,734.00",
-    low:   "29,142.50"
+    price: "29,130.00",
+    high:  "29,486.75",
+    low:   "29,089.75"
   },
 
   readiness: {
-    score: 17,
-    label: "1 of 6 — pre-window, no setup"
+    score: 0,
+    label: "Observational brief — no setup scored"
   },
 
-  narrative: "NQ collapsed from Thursday's record 29,782 high and is pressing the overnight low at 29,142.50, with Daily through 5m all bearish — the dominant draw is the sell-side resting beneath 29,142. But the lower timeframes flash a marginal bullish SMT divergence: ES is refusing to make new lows while NQ only grinds out equal lows, a relative-strength tell that warns against blindly shorting into the lows. Expect the 10:00–11:00 AM EST Silver Bullet window to resolve the conflict — the bias-aligned A+ play is a rally back into the 29,243–29,251 SIBI or the 29,462 equilibrium that gets sold for continuation to fresh lows; the contrarian play is a 29,142 sweep that ES fails to confirm, flipping a long scalp.",
+  narrative: "Into the Friday cash close NQ sits near 29,130 after a sharp Daily rejection from the 29,782 record high, with structure bearish on every timeframe from Daily through 1m — a clean lower-high sequence off the 29,486.75 session high pressing back toward the 29,089.75 session low. A persistent bullish SMT divergence is present across all four intraday timeframes: ES has broken its corresponding session low into the close while NQ has so far held above 29,089.75, leaving the strongly bearish trend and the bullish SMT in direct conflict. Price trades in discount beneath the 29,288.25 dealing-range equilibrium, with resting sell-side liquidity at the 29,137 / 29,142.50 relative equal lows and violated rally FVGs sitting unmitigated overhead.",
 
   bias: [
-    { tf: "1D",  bias: "bearish", note: "Macro uptrend (+22% over 40 sessions) but Thursday May 14 was a major premium rejection — ran to a record 29,782 then reversed to close near the lows at 29,168; price now pinned at the 29,142 session low. Short-term distribution." },
-    { tf: "4H",  bias: "bearish", note: "Clean stair-step decline off 29,782 — lower highs and lower lows (29,688 → 29,519 → 29,282 → 29,164) with sustained downside displacement; trading on the lows." },
-    { tf: "1H",  bias: "bearish", note: "Lower highs and lower lows from 29,782 down to a fresh 29,142.5; counter-bounces capped at 29,375.5. NQ and ES swept their 1H lows together." },
-    { tf: "15m", bias: "bearish", note: "LH/LL from 29,469 → 29,375.5; lows extended to 29,142.5 on heavy down-volume. Bearish structure intact, consolidating ~29,178." },
-    { tf: "5m",  bias: "bearish", note: "Stair-step LH/LL from 29,375.5 into a 29,142.5 / 29,142.75 double-bottom; only a shallow corrective bounce so far (29,177–29,190)." },
-    { tf: "1m",  bias: "neutral", note: "Counter-trend bounce off 29,142.5 — low, higher low 29,153.25, now ~29,184. No bias-side displacement; pre-window consolidation against the bearish HTF leg." }
+    { tf: "1D",  bias: "bearish", note: "Sharp rejection bar off the 29,782 record high, closing near its low (~29,172); the longer-term trend is still up (+19% over the visible range) but the latest daily candle is a strong premium rejection." },
+    { tf: "4H",  bias: "bearish", note: "Lower highs from 29,782; the 29,089.75 low was swept and price bounced to 29,486.75 before rejecting and closing back near the lows — two-sided but net distributive." },
+    { tf: "1H",  bias: "bearish", note: "A lower high was carved at 29,486.75 and price has rolled back over toward the 29,089.75 low; the bearish sequence remains intact." },
+    { tf: "15m", bias: "bearish", note: "Rejected from the 29,486.75 lower high with consistent lower highs and lower lows pressing back toward the 29,089.75 session low." },
+    { tf: "5m",  bias: "bearish", note: "Clean lower-high / lower-low staircase down from 29,486.75, accelerating into the close with the final bars driving to ~29,122." },
+    { tf: "1m",  bias: "bearish", note: "Micro lower highs and lower lows; a fresh low near 29,122 printed into the close, holding marginally above the 29,089.75 session low." }
   ],
 
   levels: [
-    { price: "29,782.00",     name: "Prior Day High / record high (Thu RTH) — rejected",        tag: "resistance" },
-    { price: "29,734.00",     name: "Asian session high / overnight high",                       tag: "resistance" },
-    { price: "29,469.25",     name: "London killzone high",                                      tag: "resistance" },
-    { price: "29,462.25",     name: "Dealing-range equilibrium (50% of 29,782–29,142.5)",        tag: "resistance" },
-    { price: "29,448.25",     name: "Prior Day Low — broken to the downside",                    tag: "swept" },
-    { price: "29,247.00",     name: "5m/15m SIBI bearish FVG · CE (zone 29,243–29,251)",          tag: "target" },
-    { price: "29,186.75",     name: "London killzone low — price hovering here",                 tag: "current" },
-    { price: "29,142.50",     name: "Overnight / session low",                                   tag: "support" },
-    { price: "29,142.50",     name: "Relative equal lows — sell-side liquidity draw",            tag: "invalidation" }
+    { price: "29,782.00",        name: "Record High",                    tag: "resistance" },
+    { price: "29,734.00",        name: "Prior Day High",                  tag: "resistance" },
+    { price: "29,486.75",        name: "Session High (lower high)",       tag: "resistance" },
+    { price: "29,408–29,461",    name: "Inverted Bull FVGs (IFVG)",       tag: "resistance" },
+    { price: "29,375.50",        name: "Globex / Early High",             tag: "resistance" },
+    { price: "29,288.25",        name: "Dealing-Range Equilibrium",       tag: "current" },
+    { price: "29,249–29,270.50", name: "5m SIBI FVG (unmitigated)",       tag: "resistance" },
+    { price: "29,137 / 29,142.50", name: "Relative Equal Lows (SSL)",     tag: "support" },
+    { price: "29,130.00",        name: "Current Price",                   tag: "current" },
+    { price: "29,089.75",        name: "Session Low / Prior Day Low",     tag: "swept" }
   ],
 
   checklist: [
-    { step: 1, name: "Bias confirmed",                status: "partial", note: "HTF strongly bearish and aligned (1D–5m). But a marginal bullish 1m/5m/15m SMT (ES higher lows vs NQ equal lows) conflicts at the execution level. Net direction = sell rallies; conviction reduced." },
-    { step: 2, name: "Liquidity sweep",               status: "partial", note: "SSL built at the 29,142.5 equal lows; London low 29,186.75 broken. No decisive sweep-and-reject inside the 10–11 AM window yet (pre-session)." },
-    { step: 3, name: "Displacement + MSS on 1m",      status: "fail",    note: "No bearish MSS on 1m. The only structural shift is a weak bullish one (low → higher low 29,153.25) against the HTF bias." },
-    { step: 4, name: "IFVG identified",               status: "na",      note: "No qualifying bias-direction IFVG; price is in pre-window consolidation off the lows." },
-    { step: 5, name: "Entry at CE of IFVG",           status: "na",      note: "No IFVG, so no Consequent Encroachment entry reference." },
-    { step: 6, name: "Min 1:1 R:R to next DOL",       status: "na",      note: "No defined entry/stop. A bounce-to-29,247-then-short to 29,142 would offer >1:1 structurally, but there is no valid trigger yet." }
+    { step: 1, name: "Bias confirmed",                status: "partial", note: "NQ structure is uniformly bearish Daily-through-1m, but a bullish SMT divergence on all four intraday timeframes conflicts with it — direction is not cleanly single-sided." },
+    { step: 2, name: "Liquidity sweep",               status: "na",      note: "The 29,089.75 session low was swept intraday with a V-reversal; into the close ES has swept its corresponding low while NQ has held — observed structure, not a live window." },
+    { step: 3, name: "Displacement + MSS on 1m",      status: "na",      note: "1m is in a bearish micro-structure of lower highs and lower lows; no bullish market-structure shift has printed." },
+    { step: 4, name: "IFVG identified",               status: "na",      note: "Violated bullish rally gaps ~29,408–29,461 now read as inversion FVGs overhead; a fresh 5m SIBI ~29,249–29,270.50 sits unmitigated." },
+    { step: 5, name: "Entry at CE of IFVG",           status: "na",      note: "The 10:00–11:00 AM EST Silver Bullet window is not active (post-session brief); CE references would be the midpoints of the IFVG zones noted above." },
+    { step: 6, name: "Min 1:1 R:R to next DOL",       status: "na",      note: "Downside draw is the 29,089.75 sell-side liquidity; upside draw sits at 29,486.75 then 29,734 / 29,782 — reference only." }
   ],
 
   smt: [
-    { tf: "1H",  nq_action: "Swept 1H low → 29,142.5 (below prior 29,177)",       es_action: "Swept 1H low → 7,429.75 (below prior 7,435.75)",   signal: "No SMT" },
-    { tf: "15m", nq_action: "Equal/marginal lower low 29,142.5 (vs 29,142.75)",   es_action: "Higher low 7,431 — held its 7,429.75",            signal: "BULLISH SMT (weak)" },
-    { tf: "5m",  nq_action: "Marginal lower low 29,142.5 (vs 29,142.75)",         es_action: "Higher low 7,431 — held its 7,429.75",            signal: "BULLISH SMT (weak)" },
-    { tf: "1m",  nq_action: "Lower low 29,142.5 — swept 29,142.75",               es_action: "Higher low 7,431.25 — held its 7,429.75",         signal: "BULLISH SMT" }
+    { tf: "1H",  nq_action: "Held above the 29,089.75 session low; printed a higher low (~29,122) into the close", es_action: "Broke its 7420.25 session low; printed a fresh lower low (7415.25)",      signal: "BULLISH SMT" },
+    { tf: "15m", nq_action: "Lower-high decline but no new low; low held ~29,122 vs the 29,089.75 session low",     es_action: "Closed at a fresh session low (7416.75, bar low 7414.25)",                 signal: "BULLISH SMT" },
+    { tf: "5m",  nq_action: "Pressing lower but the 29,089.75 session low is still intact (low ~29,122)",           es_action: "Clean new low into the close (7414.25)",                                  signal: "BULLISH SMT" },
+    { tf: "1m",  nq_action: "Higher low versus the 29,089.75 session low; micro low ~29,122",                       es_action: "Consecutive fresh 1m lows down to 7414.25 with no bounce",                signal: "BULLISH SMT" }
   ],
-  smt_conviction: "LOW · 1m SMT conflicts with bearish bias",
+  smt_conviction: "",
 
-  calendar: [
-  ],
-  calendar_empty_note: "No high-impact USD events scheduled — clean session.",
+  calendar: [],
+  calendar_empty_note: "No high-impact USD events scheduled — clean session. CPI (May 12), PPI (May 13), Retail Sales (May 14) and the May preliminary UMich consumer sentiment (May 8) were all released earlier in the week; May 16 is Saturday with markets closed.",
 
   verdict: {
-    call: "NO TRADE",
+    call: "BEARISH TREND vs BULLISH SMT — UNRESOLVED",
     watch_for: [
-      "Silver Bullet window is 10:00–11:00 AM EST — no entries before it opens (currently pre-session, 9:12 AM EST).",
-      "Bias-aligned A+ short: wait for a rally INTO premium — the 29,243–29,251 SIBI (CE ~29,247) or equilibrium 29,462 — then a 1m liquidity sweep + bearish displacement/MSS leaving an IFVG; target the 29,142.5 SSL and lower.",
-      "SMT caveat: ES is holding higher lows while NQ makes equal lows. If NQ sweeps the 29,142.5 equal lows and ES refuses a new low with a 1m MSS up, that flips to a higher-conviction LONG scalp toward 29,247 / 29,462 — do not be short into that.",
-      "Bearish thesis invalidated on sustained 1m acceptance back above the 29,247 SIBI / 29,462 equilibrium.",
-      "Clean session — no red-folder USD news risk; pure price-action read."
+      "NQ's 29,089.75 session low — swept earlier with a V-reversal and pressed again into the close; ES has already broken its corresponding low (bullish SMT context) while NQ has held above it.",
+      "Dealing-range equilibrium 29,288.25 — price is trading in discount beneath it, with the 29,137 / 29,142.50 relative equal lows resting as sell-side liquidity just below.",
+      "Overhead inversion FVGs: violated rally gaps ~29,408–29,461 and a fresh unmitigated 5m SIBI ~29,249–29,270.50 from the late-session decline.",
+      "Daily context: a strong bearish rejection bar off the 29,782 record high now sits inside a longer-term uptrend — backdrop carried into the next session."
     ]
   }
 };
